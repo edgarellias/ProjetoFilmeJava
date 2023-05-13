@@ -1,16 +1,39 @@
+import screenmatch.calculos.CalculadoraDeTempo;
+import screenmatch.modelos.Filme;
+import screenmatch.modelos.Serie;
+
 public class Principal {
     public static void main(String[] args) {
         Filme meuFilme = new Filme();
-        meuFilme.nome = "Velozes e furiosos";
-        meuFilme.anoDeLancamento = 2003;
-        meuFilme.duracaoEmMinutos = 160;
+        meuFilme.setNome("O poderoso chefão");
+        meuFilme.setAnoDeLancamento(1970);
+        meuFilme.setDuracaoEmMinutos(180);
+        System.out.println("Duração do filme: "+ meuFilme.getDuracaoEmMinutos());
 
         meuFilme.exibeFichaTecnica();
-        meuFilme.somaDasAvaliacoes(10);
-        meuFilme.somaDasAvaliacoes(3);
-        meuFilme.somaDasAvaliacoes(8);
-        System.out.println(meuFilme.somaDasAvaliacoes);
-        System.out.println(meuFilme.totalDeAvaliacoes);
+        meuFilme.avalia(8);
+        meuFilme.avalia(5);
+        meuFilme.avalia(10);
+        System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
         System.out.println(meuFilme.pegaMedia());
+        //meuFilme.somaDasAvaliacoes = 10;
+        //meuFilme.totalDeAvaliacoes = 1;
+        //System.out.println(meuFilme.pegaMedia());
+
+        Serie lost = new Serie();
+        lost.setNome("Lost");
+        lost.setAnoDeLancamento(2000);
+        lost.exibeFichaTecnica();
+        lost.setTemporadas(10);
+        lost.setEpisodiosPorTemporada(10);
+        lost.setMinutosPorEpisodio(50);
+        System.out.println("Duração para maratonar lost: "+ lost.getDuracaoEmMinutos());
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(meuFilme);
+        System.out.println(calculadora.getTempoTotal());
+
+
+
     }
 }
