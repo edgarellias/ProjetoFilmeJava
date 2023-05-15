@@ -1,6 +1,8 @@
 package screenmatch.modelos;
 
-public class Serie extends Titulo{
+import screenmatch.modelos.Titulo;
+
+public class Serie extends Titulo {
     private int temporadas;
     private boolean ativa;
     private int episodiosPorTemporada;
